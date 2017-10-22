@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link href="../../../css/bootstrap.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css"
+		href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" />
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script type="text/javascript" charset="utf8"
+		src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" charset="utf8"
+		src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+	<script type="text/javascript" charset="utf8"
+		src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.min.js"></script>
+	<script type="text/javascript" charset="utf8"
+		src="https://cdn.datatables.net/responsive/2.2.0/js/responsive.bootstrap4.min.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div th:header="header">
+		<nav class="navbar  navbar-default navbar-custom navbar-fixed-top navbar-expand-lg  navbar-dark  bg-dark">
+			<a class="navbar-brand" href="/"> SI Kependudukan </a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle  navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse  navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav  mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="/"> Home </a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/"> Cari Data </a> 
+					</li> 
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/penduduk/tambah/">Tambah Penduduk</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/keluarga/tambah/">Tambah Keluarga</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</body>
+
+</html>

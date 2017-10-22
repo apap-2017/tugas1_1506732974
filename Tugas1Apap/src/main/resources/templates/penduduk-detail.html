@@ -1,0 +1,117 @@
+<html>
+	<head>
+		<title>Detail Penduduk</title>
+	    <div th:replace="fragments/head"></div>
+	</head>
+	<body>
+	
+  	<div class="container">
+	<div class="table-container">
+			<br></br>
+			<h2 class="section-heading">Lihat data penduduk - 
+			<td th:text="${penduduk.nik}"></td></h2>
+			<br></br>
+		<div class="table-responsive">
+		<table class="table table-condensed table-borderless dt-responsive nowrap" 
+			cellspacing="0" width="100%" id="tabel-penduduk" 
+			style="font-size: 16px;">
+				<div class="col col-lg-3"></div>
+				<tr>
+					
+					<td width="25%"><b>NIK</b></td>
+					<td style="width: 1%;">:</td>
+					<td th:text="${penduduk.nik}">NIK</td>
+
+				</tr>
+				<tr>
+					<td><b>Nama</b></td>
+					<td>:</td>
+					<td th:text="${penduduk.nama}">Penduduk Nama</td>
+				</tr>
+				<tr>
+					<td width="25%"><b>Tempat/Tanggal Lahir</b></td>
+					<td style="width: 1%;">:</td>
+					<td
+						th:text="${penduduk.tempat_lahir} + ', ' + ${penduduk.tanggal_lahir}">Penduduk
+						Tempat/Tanggal Lahir</td>
+				</tr>
+				<tr>
+					<td width="25%"><b>Jenis Kelamin</b></td>
+					<td style="width: 1%;">:</td>
+						<td th:text="${penduduk.jenis_kelamin} == 1 ? 'Perempuan' : 'Laki-laki'">Kewarganegaraan</td>
+				</tr>
+				<tr>
+					<td><b>Alamat</b></td>
+					<td>:</td>
+					<td th:text="${keluarga.alamat}">Penduduk Alamat</td>
+				</tr>
+				<tr>
+					<td width="25%"><b>RT/RW</b></td>
+					<td style="width: 1%;">:</td>
+					<td th:text="${keluarga.RT} + '/' + ${keluarga.RW}">Penduduk RT/RW</td>
+				</tr>
+				<tr>
+					<td><b>Kelurahan/Desa</b></td>
+					<td>:</td>
+					<td th:text="${kelurahan.nama_kelurahan}">Penduduk Kelurahan/Desa</td>
+				</tr>
+				<tr>
+					<td><b>Kecamatan</b></td>
+					<td>:</td>
+					<td th:text="${kecamatan.nama_kecamatan}">Penduduk Kecamatan</td>
+				</tr>
+				<tr>
+					<td><b>Kota</b></td>
+					<td>:</td>
+					<td th:text="${kota.nama_kota}">Penduduk Kota</td>
+				</tr>
+				<tr>
+					<td><b>Golongan Darah</b></td>
+					<td>:</td>
+					<td th:text="${penduduk.golongan_darah}">Golongan Darah</td>
+				</tr>
+				<tr>
+					<td><b>Agama</b></td>
+					<td>:</td>
+					<td th:text="${penduduk.agama}">Penduduk Agama</td>
+				</tr>
+				<tr>
+					<td><b>Status Perkawinan</b></td>
+					<td>:</td>
+					<td th:text="${penduduk.status_perkawinan}">Status Pekawinan</td>
+				</tr>
+				<tr>
+					<td><b>Pekerjaan</b></td>
+					<td>:</td>
+					<td th:text="${penduduk.pekerjaan}">Pekerjaan</td>
+				</tr>
+				<tr>
+					<td><b>Kewarganegaraan</b></td>
+					<td>:</td>
+					<td th:text="${penduduk.is_wni} == 1 ? 'WNI' : 'WNA'">Kewarganegaraan</td>
+				</tr>
+				<tr>
+					<td><b>Status Kematian</b></td>
+					<td>:</td>
+					<td th:text="${penduduk.is_wafat} == 1 ? 'Wafat' : 'Hidup'">Status Kematian</td>
+				</tr>
+				<div class="col col-lg-3"></div>
+		</table>
+		</div>
+		<form method="post" th:action="'/penduduk/mati'">
+			<div class="button-nonaktifkan">
+				<input type="hidden" name="nik" th:value="${penduduk.nik}" />
+				<button type="submit" class="btn btn-primary">Nonaktifkan</button>
+			</div>
+		</form>
+		<style>
+			.button-nonaktifkan {
+			    text-align: right;
+			}
+		</style>
+	</div>
+	</div>
+	</body>
+	<br></br>
+	<div th:replace="fragments/footer"></div>
+</html>

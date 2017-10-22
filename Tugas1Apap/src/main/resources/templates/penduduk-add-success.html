@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+ 		<title>Sukses!</title>
+ 		<div th:replace="fragments/head"></div>
+    </head>
+    <body>
+    		<div class="jumbotron">
+	    		<h1><b>Sukses !</b></h1>
+			<h4 th:text="'Penduduk dengan NIK ' + ${nik} + ' berhasil ditambahkan'"></h4>
+		</div>
+    </body>
+    <div th:replace="fragments/footer"></div>
+</html>

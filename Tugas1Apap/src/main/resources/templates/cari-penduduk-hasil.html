@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Lihat Penduduk</title>
+<div th:replace="fragments/head"></div>
+<link rel="stylesheet" href="../../css/bootstrap.min.css"></link>
+<link rel="stylesheet" type="text/css"
+	href="../../DataTables/datatables.css"></link>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8"
+	src="../../DataTables/datatables.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#listPenduduk').DataTable();
+		responsive: true;
+	});
+</script>
+<style>
+h2 {
+	text-align: center;
+}
+</style>
+</head>
+<div class="jumbotron">
+	<h2
+		th:text="'Lihat Data Penduduk di Kota ' + ${kt_nama} + ', Kecamatan ' + ${kc_nama} + ', Kelurahan ' + ${kl_nama}">Lihat
+		Penduduk</h2>
+</div>
+<body>
+	<div class="container-fluid text-center">
+		<div class="row content">
+			<div class="col-sm-2"></div>
+			<div class="col-sm-8 text-left">
+
+				<hr></hr>
+				<div class="row">
+
+					<!-- Table Termuda -->
+					<div class="col-lg-4">
+						<h5>Penduduk Dengan Usia Termuda</h5>
+						<table class="table table-bordered table-striped dt-responsive nowrap">
+							<tbody>
+								<tr>
+									<td>NIK</td>
+									<td th:text="${termuda.nik}">NIK</td>
+								</tr>
+								<tr>
+									<td>Nama</td>
+									<td th:text="${termuda.nama}">Nama Termuda</td>
+								</tr>
+								<tr>
+									<td>Tanggal Lahir</td>
+									<td th:text="${termuda.tanggal_lahir}">Tanggal Lahir
+										Termuda</td>
+								</tr>
+							</tbody>
+						</table>
+						<button type="submit" class="btn btn-outline-primary"><a th:href="'/penduduk?nik=' + ${termuda.nik}" > Lihat Penduduk </a></button>
+					</div>
+					<div class="col-lg-4"></div>
+					<!-- Table Tertua -->
+					<div class="col-lg-4">
+						<h5>Penduduk Dengan Usia Tertua</h5>
+						<table class="table table-bordered table-striped dt-responsive nowrap">
+							<tbody>
+								<tr>
+									<td>NIK</td>
+									<td><a th:href="'/penduduk?nik=' + ${tertua.nik}"
+										th:text="${tertua.nik}">NIK</a></td>
+								</tr>
+								<tr>
+									<td>Nama</td>
+									<td th:text="${tertua.nama}">Nama Tertua</td>
+								</tr>
+								<tr>
+									<td>Tanggal Lahir</td>
+									<td th:text="${tertua.tanggal_lahir}">Tanggal Lahir Tertua</td>
+								</tr>
+							</tbody>
+						</table>
+						<button type="submit" class="btn btn-outline-primary"><a th:href="'/penduduk?nik=' + ${tertua.nik}" > Lihat Penduduk </a></button>
+					</div>
+				</div>
+
+
+				<hr></hr>
+				<hr></hr>
+
+				<table id="listPenduduk"
+					class="table table-bordered table-striped dt-responsive nowrap"
+					style="width: 100%">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>NIK</th>
+							<th>Nama Lengkap</th>
+							<th>Jenis Kelamin</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						<tr th:each="penduduk,iterationStatus: ${listPenduduk}">
+							<td th:text="${iterationStatus.count}">No</td>
+							<td th:text="${penduduk.nik}">NIK</td>
+							<td th:text="${penduduk.nama}">Nama Lengkap</td>
+
+							<td
+								th:text="${penduduk.jenis_kelamin} == 1 ? 'Perempuan' : 'Laki-laki'">Jenis
+								Kelamin</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-2"></div>
+		</div>
+	</div>
+	<br></br>
+</body>
+<div th:replace="fragments/footer"></div>
+</html>

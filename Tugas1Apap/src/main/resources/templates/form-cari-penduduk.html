@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+ 		<title>Lihat Penduduk</title>
+ 		<div th:replace="fragments/head"></div>
+    </head>
+    <body>
+    		<div class="jumbotron">
+	    		<h1 th:text="'Lihat Data Penduduk'"></h1>
+		</div>
+		
+		<div class="containter-fluid">
+		<style>
+			form { 
+			margin: 0 auto; 
+			width:500px;
+			}
+			button{
+			margin: 0 px;
+			}
+		</style>
+			<form action="/penduduk/cari" method="get">
+			
+				<div class="row">
+				<div class="col-lg-12 mb-8">
+				<h5>Kota</h5>
+					<div th:if="${flag_kota==true}">
+				            <select class="form-control" name="kt" th:value="${kt}" readonly="true">
+	  							<option th:value="${kt}" th:text="${kt_nama}"></option>
+							</select>
+	        			</div>
+	        			<div th:unless="${flag_kota==true}">
+	        				<select class="form-control" name="kt">
+	  							<option th:each="kota,iterationStatus: ${listKota}" th:value="${kota.id}" th:text="${kota.nama_kota}"></option>
+							</select>
+	        			</div>
+        			</div>
+        			</div>
+        			
+        			<br></br>
+        			
+        			<div class="row">
+				<div class="col-lg-12 mb-4">
+				<h5>Kecamatan</h5>
+	        			<div th:if="${flag_kecamatan==true}">
+				            <select class="form-control" name="kc" th:value="${kc}" readonly="true">
+	  							<option th:value="${kc}" th:text="${kc_nama}"></option>
+							</select>
+	        			</div>
+	        			<div th:unless="${flag_kecamatan==true}">
+	        				<select class="form-control" name="kc">
+	  							<option th:each="kecamatan,iterationStatus: ${listKecamatan}" th:value="${kecamatan.id}" th:text="${kecamatan.nama_kecamatan}"></option>
+							</select>
+	        			</div>
+	        		</div>
+				</div>	
+				
+				
+        			<div class="row">        			
+					<div class="col-lg-12 mb-4">
+					<h5>Kelurahan</h5>
+	        				<div th:if="${flag_kelurahan==true}">
+				            <select class="form-control" name="kl" th:value="${kl}" readonly="true">
+	  							<option th:value="${kl}" th:text="${kl_nama}"></option>
+							</select>
+	        				</div>
+	        				<div th:unless="${flag_kelurahan==true}">
+	        					<select class="form-control" name="kl">
+	  							<option th:each="kelurahan,iterationStatus: ${listKelurahan}" th:value="${kelurahan.id}" th:text="${kelurahan.nama_kelurahan}"></option>
+							</select>
+	        				</div>
+					</div>
+				</div>
+				<br></br>
+				<button style="cursor:pointer; width: 100px; margin: 0 auto;" type="submit" class="btn btn-primary">Lihat</button>
+				<br></br>
+			</form>
+			
+		</div>
+		<br></br>
+    </body>
+    <div th:replace="fragments/footer"></div>
+</html>

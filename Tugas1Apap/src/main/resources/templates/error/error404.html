@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+ 		<title>Error 404 Not found</title>
+ 		<div th:replace="fragments/head"></div>
+    </head>
+    <body>
+    		<div class="jumbotron">
+	    		<h1><b>ERROR !</b></h1>
+			<p th:text="${errorMessage}">Pesan error</p>
+		</div>
+    </body>
+    <div th:replace="fragments/footer"></div>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+ 		<title>Ubah Keluarga</title>
+ 		<div th:replace="fragments/head"></div>
+ 		<div class="jumbotron">
+			<h3>Ubah Keluarga</h3>
+		<br></br>
+	</div>
+    </head>
+    <body>
+    		<br></br>
+    		<form method="POST" th:action="'/keluarga/ubah/' + ${keluarga.nomor_kk}" th:object="${keluarga}">
+    		
+    		<div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8">
+		  <div class="form-group">
+		    <label for="alamat">Alamat</label>
+		    <input type="text" class="form-control" id="alamat" th:field="*{alamat}"></input>
+		  </div>
+		  </div>
+		  <div class="col-sm-2"></div>
+		</div>
+		
+		<div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8">
+		  <div class="form-group">
+		    <label for="rt">RT</label>
+		    <input type="number" class="form-control" id="rt" th:field="*{RT}" minlength="3" maxlength="3"></input>
+		  </div>
+		  </div>
+		  <div class="col-sm-2"></div>
+		</div>
+		
+		<div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8">
+		  <div class="form-group">
+		    <label for="rw">RW</label>
+		    <input type="number" class="form-control" id="rw" th:field="*{RW}" minlength="3" maxlength="3"></input>
+		  </div>
+		  </div>
+		  <div class="col-sm-2"></div>
+		</div>
+		
+		 <div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8">
+		  <div class="form-group">
+                <label for="id_kelurahan"><h6>Kota / Kecamatan / Kelurahan</h6></label>
+                <select class="form-control" name="id_kelurahan" id="id_kelurahan" th:value="${keluarga.id_kelurahan}" th:field="*{id_kelurahan}" required="true">
+                    <option value="" th:disabled="disabled" th:selected="selected">Pilih Kelurahan</option>
+                    <div th:each="kelurahan : ${kelurahan}">
+                        <option th:value="${kelurahan.id}" th:text="${kelurahan.nama_kelurahan}">Kelurahan yang mau dipilih</option>
+                    </div>
+                </select>
+            </div>
+		  </div>
+		  <div class="col-sm-2"></div>
+		</div>
+		
+		<!--  <div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8">  
+		  <div class="form-group">
+		    <label for="kecamatan">Kecamatan</label>
+		    <input type="text" class="form-control" id="kecamatan" th:field="*{kecamatan}"></input>
+		  </div>
+		  </div>
+		  <div class="col-sm-2"></div>
+		</div>
+		
+		<div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8">
+		  <div class="form-group">
+		    <label for="kota">Kota</label>
+		    <input type="text" class="form-control" id="kota" th:field="*{kota}"></input>
+		  </div>
+		  </div>
+		  <div class="col-sm-2"></div>
+		</div>
+		
+		-->
+		
+		<div class="row"></div>
+		
+		<div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8">
+		  <button type="submit" class="btn btn-primary">Simpan</button>
+		  </div>
+		  <div class="col-sm-2"></div>
+		</div>
+		
+		</form>
+    </body>
+    <br></br>
+    <div th:replace="fragments/footer"></div>
+</html>
